@@ -1,10 +1,63 @@
 # Serverless Framework Python Flask API + Static Website Hosting on AWS
 
+## Prerequisite
+
+### Install NPM and Node:
+
+#### Install NVM:
+
+```
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+```
+
+To test that nvm was properly installed, close and re-open Terminal and enter nvm. If you get a nvm: command not found message, your OS may not have the necessary .bash_profile file. In Terminal, enter touch ~/.bash_profile and run the above install script again.
+
+#### Install Node 21:
+
+```
+nvm install 21
+```
+
+In order to access node and npm as sudo (in order to have <1024 ports) you should run
+
+```
+n=$(which node)
+n=${n%/bin/node}
+chmod -R 755 $n/bin/* 
+sudo cp -r $n/{bin,lib,share} /usr/local 
+```
+
+### Install Serverless:
+
+```
+npm install -g serverless
+```
+
+### Setup AWS Credentials:
+
+Create AWS Credentials file ` ~/.aws/credentials` and populate it with:
+
+```
+[default]
+aws_access_key_id=<ACCESS-KEY>
+aws_secret_access_key=<SECRET-ACCESS-KEY>
+```
+
+and replace `<ACCESS-KEY>` and `<SECRET-ACCESS-KEY>` with your keys.
+
+Create AWS Config file ` ~/.aws/config` and populate it with:
+
+```
+[default]
+region=us-east-1
+output=json
+```
+
 ## Usage
 
 ### Deployment
 
-This example is made to work with the Serverless Framework dashboard, which includes advanced features such as CI/CD, monitoring, metrics, etc.
+Make sure you are in the current project directory.
 
 In order to deploy with dashboard, you need to first login/register with:
 
@@ -35,7 +88,7 @@ After running deploy, you should see output similar to:
 ```
 Deploying "aws-python-flask-api" to stage "dev" (us-east-1)
 
-Using Python specified in "runtime": python3.12
+Using Python specified in "runtime": python3.9
 
 Packaging Python WSGI handler...
 
@@ -76,6 +129,14 @@ Should result in the following response:
 ```json
 { "message": "Hello from path!" }
 ```
+
+Calling the `/read_csv` path with:
+
+```
+curl -X POST -H "Content-Type: application/json" -d '{"file_name": "path_to_your_csv_file.csv"}' [http://127.0.0.1:5000/](https://xxxxxxx.execute-api.us-east-1.amazonaws.com/dev/)read_csv
+```
+
+Should return data of csv files in JSON format.
 
 ### Local development
 
