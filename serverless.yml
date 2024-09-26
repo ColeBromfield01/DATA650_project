@@ -1,0 +1,55 @@
+service: aws-python-flask-api
+
+frameworkVersion: "4"
+
+custom:
+  wsgi:
+    app: app.app
+  s3Sync:
+    - bucketName: msml-data-650-front-end-static-cb-dr-mn
+      localDir: html
+      deleteRemoved: true # optional, indicates whether sync deletes files no longer present in localDir. Defaults to 'true'
+      acl: public-read # optional
+      followSymlinks: true # optional
+      defaultContentType: text/html # optional
+      params: # optional
+        - index.html:
+            CacheControl: 'no-cache'
+        - "*.js":
+            CacheControl: 'public, max-age=31536000'
+  pythonRequirements:
+    zip: true
+
+provider:
+  name: aws
+  runtime: python3.9
+
+
+resources:
+  Resources:
+    WebsiteBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: msml-data-650-front-end-static-cb-dr-mn
+        AccessControl: PublicRead
+        WebsiteConfiguration:
+          IndexDocument: index.html
+          ErrorDocument: index.html
+
+functions:
+  api:
+    handler: wsgi_handler.handler
+    events:
+      - http:
+          path: /
+          method: ANY
+          cors: true
+      - http:
+          path: /{proxy+}
+          method: ANY
+          cors: true
+
+plugins:
+  - serverless-s3-sync
+  - serverless-wsgi
+  - serverless-python-requirements
