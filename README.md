@@ -133,7 +133,7 @@ Should result in the following response:
 Calling the `/read_csv` path with:
 
 ```
-curl -X POST -H "Content-Type: application/json" -d '{"file_name": "path_to_your_csv_file.csv"}' [http://127.0.0.1:5000/](https://xxxxxxx.execute-api.us-east-1.amazonaws.com/dev/)read_csv
+curl -X POST -H "Content-Type: application/json" -d '{"file_name": "path_to_your_csv_file.csv"}' https://xxxxxxx.execute-api.us-east-1.amazonaws.com/dev/read_csv
 ```
 
 Should return data of csv files in JSON format.
