@@ -91,7 +91,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "serverless-framework-deployments-us-east-1-e55afb21-2029",
-          "S3Key": "serverless/aws-python-flask-api/dev/1727371808843-2024-09-26T17:30:08.843Z/aws-python-flask-api.zip"
+          "S3Key": "serverless/aws-python-flask-api/dev/1729611573808-2024-10-22T15:39:33.808Z/aws-python-flask-api.zip"
         },
         "Handler": "wsgi_handler.handler",
         "Runtime": "python3.9",
@@ -109,14 +109,14 @@
         "ApiLogGroup"
       ]
     },
-    "ApiLambdaVersionxWfEPAV4MtCITaSXEwEN7jLKO4E05Q94EOSNEYbma0": {
+    "ApiLambdaVersion2EnQnzVw4VrK87by4QdWRjhmGcFGoZJpfdkCD9590": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "ApiLambdaFunction"
         },
-        "CodeSha256": "RIO1V6Ee71Dh1cxz8tDzJsLCnBrX+Ux3qrSXeFdiYyw="
+        "CodeSha256": "YkdLwKtg8eVDd86FWwlxlF42mdJxmSg4WkvGKNB6ACM="
       }
     },
     "ApiGatewayRestApi": {
@@ -334,7 +334,7 @@
         "ApiLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1727371738571": {
+    "ApiGatewayDeployment1729611498955": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -408,7 +408,7 @@
     "ApiLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "ApiLambdaVersionxWfEPAV4MtCITaSXEwEN7jLKO4E05Q94EOSNEYbma0"
+        "Ref": "ApiLambdaVersion2EnQnzVw4VrK87by4QdWRjhmGcFGoZJpfdkCD9590"
       },
       "Export": {
         "Name": "sls-aws-python-flask-api-dev-ApiLambdaFunctionQualifiedArn"

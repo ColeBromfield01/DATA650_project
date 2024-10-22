@@ -16,6 +16,12 @@
       <button type="submit">Submit</button>
     </form>
 
+    <h2>String</h2>
+    <p>String from backend will be displayed here.</p>
+    <div id="team_lookup"></div>
+    
+    <h2>Table</h2>
+    <p>Table from backend will be displayed here.</p>
     <table id="data-table" border="1">
       <thead>
         <tr id="table-header"></tr>
@@ -27,6 +33,17 @@
       const form = document.getElementById('data-form');
       form.addEventListener('submit', async (event) => {
         event.preventDefault();
+
+        const team_lookup_response = await fetch('https://osir3dme2h.execute-api.us-east-1.amazonaws.com/dev/team_lookup?year=1936&team=New+York+Yankees', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        const team_lookup_data = await team_lookup_response.json();
+        console.log(team_lookup_data);
+        document.getElementById('team_lookup').textContent = team_lookup_data.team;
 
         const file_name = document.getElementById('name').value;
 
@@ -72,4 +89,3 @@
     </script>
   </body>
 </html>
-

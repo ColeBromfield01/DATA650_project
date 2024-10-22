@@ -2,6 +2,7 @@ from flask import Flask, jsonify, make_response, request
 import pandas as pd
 import os
 from flask_cors import CORS
+import functions
 
 app = Flask(__name__)
 CORS(app)
@@ -24,6 +25,14 @@ def read_csv():
         return jsonify({"error": "File not found"}), 404
     df = pd.read_csv(file_name)
     return jsonify(df.to_dict(orient='records'))
+
+
+@app.route('/team_lookup', methods=['GET'])
+def get_team_lookup():
+    year = request.args.get('year')
+    team = request.args.get('team')
+    return jsonify({ "team": functions.team_lookup(team, int(year))})
+
 
 @app.errorhandler(404)
 def resource_not_found(e):
