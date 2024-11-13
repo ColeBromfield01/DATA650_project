@@ -7,7 +7,7 @@ custom:
     app: app.app
   s3Sync:
     - bucketName: msml-data-650-front-end-static-cb-dr-mn
-      localDir: html
+      localDir: frontend/dist/
       deleteRemoved: true # optional, indicates whether sync deletes files no longer present in localDir. Defaults to 'true'
       acl: public-read # optional
       followSymlinks: true # optional
@@ -48,8 +48,12 @@ functions:
           path: /{proxy+}
           method: ANY
           cors: true
+    package:
+      exclude:
+        - 'frontend/**'
 
 plugins:
   - serverless-s3-sync
   - serverless-wsgi
   - serverless-python-requirements
+  - serverless-plugin-common-excludes
