@@ -103,7 +103,7 @@
             "Properties": {
               "Code": {
                 "S3Bucket": "serverless-framework-deployments-us-east-1-e55afb21-2029",
-                "S3Key": "serverless/aws-python-flask-api/dev/1731515578998-2024-11-13T16:32:58.998Z/aws-python-flask-api.zip"
+                "S3Key": "serverless/aws-python-flask-api/dev/1731519792723-2024-11-13T17:43:12.723Z/aws-python-flask-api.zip"
               },
               "Handler": "wsgi_handler.handler",
               "Runtime": "python3.9",
@@ -121,14 +121,14 @@
               "ApiLogGroup"
             ]
           },
-          "ApiLambdaVersioncubTe8zE4Wn3kj1APzde3gBD81UbWmWFrUcV3Inn0": {
+          "ApiLambdaVersionNOBWKyEQA9mnLhT8Fy7BbUfWnALcaOC2rLZLS222lc": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "ApiLambdaFunction"
               },
-              "CodeSha256": "dKrX9MBBjDlXArz2nENRwq8iGsq57CtTRQc72PorXc8="
+              "CodeSha256": "pRXOiA6mBi0Z4nmSR2absxk8qXr5OfFSWQhljMmeIzM="
             }
           },
           "ApiGatewayRestApi": {
@@ -346,7 +346,7 @@
               "ApiLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1731515506928": {
+          "ApiGatewayDeployment1731519713907": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -420,7 +420,7 @@
           "ApiLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "ApiLambdaVersioncubTe8zE4Wn3kj1APzde3gBD81UbWmWFrUcV3Inn0"
+              "Ref": "ApiLambdaVersionNOBWKyEQA9mnLhT8Fy7BbUfWnALcaOC2rLZLS222lc"
             },
             "Export": {
               "Name": "sls-aws-python-flask-api-dev-ApiLambdaFunctionQualifiedArn"
@@ -556,7 +556,7 @@
         "timeout": 6,
         "runtime": "python3.9",
         "vpc": {},
-        "versionLogicalId": "ApiLambdaVersioncubTe8zE4Wn3kj1APzde3gBD81UbWmWFrUcV3Inn0"
+        "versionLogicalId": "ApiLambdaVersionNOBWKyEQA9mnLhT8Fy7BbUfWnALcaOC2rLZLS222lc"
       }
     },
     "resources": {
@@ -602,7 +602,7 @@
     "artifact": "/home/ec2-user/DATA650_project/.serverless/aws-python-flask-api.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/aws-python-flask-api/dev/1731515578998-2024-11-13T16:32:58.998Z",
+    "artifactDirectoryName": "serverless/aws-python-flask-api/dev/1731519792723-2024-11-13T17:43:12.723Z",
     "artifact": "aws-python-flask-api.zip"
   }
 }

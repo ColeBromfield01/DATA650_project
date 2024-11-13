@@ -1,35 +1,81 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const [fileName, setFileName] = useState('');
+  const [teamLookup, setTeamLookup] = useState('');
+  const [tableData, setTableData] = useState([]);
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    // Fetch the team lookup data
+    const teamLookupResponse = await fetch('https://osir3dme2h.execute-api.us-east-1.amazonaws.com/dev/team_lookup?year=1936&team=New+York+Yankees');
+    const teamLookupData = await teamLookupResponse.json();
+    console.log(teamLookupData);
+    setTeamLookup(teamLookupData.team);
+
+    // Fetch the CSV data
+    const response = await fetch('https://osir3dme2h.execute-api.us-east-1.amazonaws.com/dev/read_csv', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ file_name: fileName }),
+    });
+    const data = await response.json();
+    console.log(data);
+    setTableData(data);
+    setFileName('');
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div>
+      <h1>Welcome to my Serverless Web App!</h1>
+      <p>This is a static website hosted on AWS S3.</p>
 
-export default App
+      <h2>Data</h2>
+      <form onSubmit={handleFormSubmit}>
+        <label htmlFor="name">File Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="data/ManagersHalf.csv"
+          value={fileName}
+          onChange={(e) => setFileName(e.target.value)}
+          required
+        />
+        <br />
+        <button type="submit">Submit</button>
+      </form>
+
+      <h2>String</h2>
+      <p>String from backend will be displayed here:</p>
+      <div>{teamLookup}</div>
+
+      <h2>Table</h2>
+      <p>Table from backend will be displayed here:</p>
+      <table border="1">
+        <thead>
+          <tr>
+            {tableData.length > 0 && Object.keys(tableData[0]).map((header) => (
+              <th key={header}>{header}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {tableData.map((row, index) => (
+            <tr key={index}>
+              {Object.values(row).map((value, i) => (
+                <td key={i}>{value}</td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+export default App;
+
