@@ -25,4 +25,4 @@ Go back to the root level directory to deploy and run:
 serverless deploy
 ```
 
-After deployment finishes, you should see your changes dsiplayed here: http://msml-data-650-front-end-static-cb-dr-mn.s3-website-us-east-1.amazonaws.com/
+After deployment finishes, you should see your changes displayed here: http://msml-data-650-front-end-static-cb-dr-mn.s3-website-us-east-1.amazonaws.com/
