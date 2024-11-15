@@ -10,13 +10,22 @@
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 ```
 
-To test that nvm was properly installed, close and re-open Terminal and enter nvm. If you get a nvm: command not found message, your OS may not have the necessary .bash_profile file. In Terminal, enter touch ~/.bash_profile and run the above install script again.
+To test that nvm was properly installed, close and re-open Terminal and enter nvm. If you get a nvm: command not found message, your OS may not have the necessary .bash_profile file. In Terminal, enter touch ~/.bash_profile and run the above install script again.  For Windows users, navigate to https://github.com/coreybutler/nvm-windows/releases and download `nvm-setup.exe`.
 
 #### Install Node 21:
 
 ```
 nvm install 21
 ```
+**For Windows users**
+
+The above command may only work in administrator mode.  After installing, return to your standard command prompt and run
+
+```
+nvm use 21
+```
+
+**For non-Windows users**
 
 In order to access node and npm as sudo (in order to have <1024 ports) you should run
 
@@ -33,7 +42,11 @@ sudo cp -r $n/{bin,lib,share} /usr/local
 npm install -g serverless
 ```
 
+(May only work in administrator mode for Windows users)
+
 ### Setup AWS Credentials:
+
+**For non-Windows users**
 
 Create AWS Credentials file ` ~/.aws/credentials` and populate it with:
 
@@ -52,6 +65,27 @@ Create AWS Config file ` ~/.aws/config` and populate it with:
 region=us-east-1
 output=json
 ```
+
+**For Windows users**
+
+Installing AWS command-line interface (if not installed already):
+
+```
+msiexec.exe /i https://awscli.amazonaws.com/AWSCLIV2.msi
+```
+
+Confirm installation:
+```
+aws --version
+```
+
+To configure credentials and config files, run the following command:
+
+```
+aws configure
+```
+
+You will be prompted to enter your access and secret access keys, followed by the default region name (`us-east-1`) and output format (`json`).  The ` ~/.aws/credentials` and ` ~/.aws/config` files will be automatically generated with the correct information.
 
 ## Usage
 

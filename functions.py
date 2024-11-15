@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 all_star_full = pd.read_csv("data/AllstarFull.csv")
 appearances = pd.read_csv("data/Appearances.csv")
@@ -160,7 +161,83 @@ def team_lookup(team_name, year, df=teams):
     return info_str
 
 
+def visualize_batting_leaders(stat, top_n, start_year=1871, end_year=2023, df=batting):
+    """
+    Visualizes the top n players in a given batting category, in a given period (set start year and end year equal for
+    single season stats).
+    """
+
+    # Raising ValueError if years are out of range, or if end year is earlier than start year
+    if start_year < 1871 or start_year > 2023 or end_year > 2023:
+        raise ValueError("Please choose valid MLB seasons (1871-2023)")
+
+    if start_year > end_year:
+        raise ValueError("Start year can't be after end year")
+
+    # Filtering for selected range
+    year_stats = df[(df['yearID'] >= start_year) & (df['yearID'] <= end_year)]
+
+    # Aggregating stats by player
+    grouped_year_stats = year_stats.groupby('playerID').sum().reset_index()
+
+    sorted_df = grouped_year_stats.sort_values(by=stat, ascending=False)
+
+    leaderboard = sorted_df.head(top_n)
+
+    leaderboard['Name'] = leaderboard['playerID'].apply(get_name)
+
+    plt.bar(leaderboard['Name'], leaderboard[stat])
+
+    plt.xlabel('Player')
+    if start_year == end_year:
+        plt.ylabel(f"{stat} in {start_year}")
+    else:
+        plt.ylabel(f"{stat} from {start_year} to {end_year}")
+
+    plt.xticks(rotation=20)
+
+    plt.show()
+
+
+def visualize_pitching_leaders(stat, top_n, start_year=1871, end_year=2023, df=pitching):
+    """
+    Visualizes the top n players in a given pitching category, in a given period (set start year and end year equal for
+    single season stats).
+    """
+
+    # Raising ValueError if years are out of range, or if end year is earlier than start year
+    if start_year < 1871 or start_year > 2023 or end_year > 2023:
+        raise ValueError("Please choose valid MLB seasons (1871-2023)")
+
+    if start_year > end_year:
+        raise ValueError("Start year can't be after end year")
+
+    # Filtering for selected range
+    year_stats = df[(df['yearID'] >= start_year) & (df['yearID'] <= end_year)]
+
+    # Aggregating stats by player
+    grouped_year_stats = year_stats.groupby('playerID').sum().reset_index()
+
+    sorted_df = grouped_year_stats.sort_values(by=stat, ascending=False)
+
+    leaderboard = sorted_df.head(top_n)
+
+    leaderboard['Name'] = leaderboard['playerID'].apply(get_name)
+
+    plt.bar(leaderboard['Name'], leaderboard[stat])
+
+    plt.xlabel('Player')
+    if start_year == end_year:
+        plt.ylabel(f"{stat} in {start_year}")
+    else:
+        plt.ylabel(f"{stat} from {start_year} to {end_year}")
+
+    plt.xticks(rotation=20)
+
+    plt.show()
+
+
 pd.set_option('display.max_rows', None)  # Show all rows
 pd.set_option('display.max_columns', None)  # Show all columns
 
-print(team_lookup("New York Yankees", 1936))
+visualize_pitching_leaders('SO', 5)

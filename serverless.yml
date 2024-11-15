@@ -19,6 +19,7 @@ custom:
             CacheControl: 'public, max-age=31536000'
   pythonRequirements:
     zip: true
+  pythonBin: "python"
 
 provider:
   name: aws
