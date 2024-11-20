@@ -188,3 +188,12 @@ serverless wsgi serve
 ```
 
 For additional local development capabilities of `serverless-wsgi` plugin, please refer to corresponding [GitHub repository](https://github.com/logandk/serverless-wsgi).
+
+## Interface
+
+Ideal setup:
+User selects what they would like to look up (either from a dropdown menu, or separate sections for each lookup).  Options:
+ * Look up a stat leader for a given year (select pitching/batting).  User enters stat and year
+ * Look up a stat leader for a given time period (select pitching/batting).  User enters stat, start year, and end year (leaving start year and end year blank should default to start year of 1871, end year of 2023)
+ * Get information for a given team in a given year
+ * Visualize stat leaders for a given time period in a bar chart (select pitching/batting).  User enters stat, number of leaders (e.g. top 5) they wish to see, start year, and end year (same default for start and end year applies)
