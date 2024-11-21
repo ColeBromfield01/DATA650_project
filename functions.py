@@ -1,5 +1,9 @@
 import pandas as pd
-import matplotlib.pyplot as plt
+import json
+
+## TODO (Cole):
+## Instructions for user
+## Error handling for invalid abbreviations
 
 all_star_full = pd.read_csv("data/AllstarFull.csv")
 appearances = pd.read_csv("data/Appearances.csv")
@@ -186,17 +190,16 @@ def visualize_batting_leaders(stat, top_n, start_year=1871, end_year=2023, df=ba
 
     leaderboard['Name'] = leaderboard['playerID'].apply(get_name)
 
-    plt.bar(leaderboard['Name'], leaderboard[stat])
+    # Creating a JSON object
+    json_data = {
+        "labels": leaderboard['Name'].tolist(),
+        "values": leaderboard[stat].tolist()
+    }
 
-    plt.xlabel('Player')
-    if start_year == end_year:
-        plt.ylabel(f"{stat} in {start_year}")
-    else:
-        plt.ylabel(f"{stat} from {start_year} to {end_year}")
+    # Optionally, if you need to send it as a JSON string:
+    json_string = json.dumps(json_data)
 
-    plt.xticks(rotation=20)
-
-    plt.show()
+    return json_string
 
 
 def visualize_pitching_leaders(stat, top_n, start_year=1871, end_year=2023, df=pitching):
@@ -224,20 +227,18 @@ def visualize_pitching_leaders(stat, top_n, start_year=1871, end_year=2023, df=p
 
     leaderboard['Name'] = leaderboard['playerID'].apply(get_name)
 
-    plt.bar(leaderboard['Name'], leaderboard[stat])
+    # Creating a JSON object
+    json_data = {
+        "labels": leaderboard['Name'].tolist(),
+        "values": leaderboard[stat].tolist()
+    }
 
-    plt.xlabel('Player')
-    if start_year == end_year:
-        plt.ylabel(f"{stat} in {start_year}")
-    else:
-        plt.ylabel(f"{stat} from {start_year} to {end_year}")
+    # Optionally, if you need to send it as a JSON string:
+    json_string = json.dumps(json_data)
 
-    plt.xticks(rotation=20)
-
-    plt.show()
-
+    return json_string
 
 pd.set_option('display.max_rows', None)  # Show all rows
 pd.set_option('display.max_columns', None)  # Show all columns
 
-visualize_pitching_leaders('SO', 5)
+print(visualize_pitching_leaders('SO', 5))
