@@ -50,8 +50,13 @@ functions:
           method: ANY
           cors: true
     package:
-      exclude:
-        - 'frontend/**'
+      individually: true
+      patterns:
+        - '!./**'
+        - '*.py'
+        - 'data/**'
+        - '**.zip'
+        - '**.serverless-wsgi'  
 
 plugins:
   - serverless-s3-sync

@@ -34,7 +34,7 @@ def get_team_lookup():
     return jsonify({ "output": functions.team_lookup(team, int(year))})
 
 
-@app.route('/get_batting_leader', methods=['GET'])
+@app.route('/batting_leader', methods=['GET'])
 def get_batting_leader():
     year = request.args.get('year')
     stat = request.args.get('stat')
@@ -42,7 +42,7 @@ def get_batting_leader():
     return jsonify({"output": functions.get_batting_leader(year, stat)})
 
 
-@app.route('/get_pitching_leader', methods=['GET'])
+@app.route('/pitching_leader', methods=['GET'])
 def get_pitching_leader():
     year = request.args.get('year')
     stat = request.args.get('stat')
@@ -50,7 +50,7 @@ def get_pitching_leader():
     return jsonify({"output": functions.get_pitching_leader(year, stat)})
 
 
-@app.route('\period_batting_leader', methods=['GET'])
+@app.route('/period_batting_leader', methods=['GET'])
 def get_period_batting_leader():
     # Possible to modify to where these are only initialized if the user enters a start and end year,
     # otherwise defaulting to 1871-2023?
@@ -61,8 +61,8 @@ def get_period_batting_leader():
     return jsonify({"output": functions.period_batting_leader(stat, start_year=start_year, end_year=end_year)})
 
 
-@app.route('\period_pitching_leader', methods=['GET'])
-def get_period_batting_leader():
+@app.route('/period_pitching_leader', methods=['GET'])
+def get_period_pitching_leader():
     # Possible to modify to where these are only initialized if the user enters a start and end year,
     # otherwise defaulting to 1871-2023?
     start_year = request.args.get('start_year')
@@ -72,8 +72,8 @@ def get_period_batting_leader():
     return jsonify({"output": functions.period_pitching_leader(stat, start_year=start_year, end_year=end_year)})
 
 
-@app.route('\\visualize_batting_leaders', methods=['GET'])
-def get_batting_bar():
+@app.route('/visualize_batting_leaders', methods=['GET'])
+def get_visualize_batting_leaders():
     start_year = request.args.get('start_year')
     end_year = request.args.get('end_year')
     stat = request.args.get('stat')
@@ -82,8 +82,8 @@ def get_batting_bar():
     return functions.visualize_batting_leaders(stat, top_n, start_year=start_year, end_year=end_year)
 
 
-@app.route('\\visualize_pitching_leaders', methods=['GET'])
-def get_pitching_bar():
+@app.route('/visualize_pitching_leaders', methods=['GET'])
+def get_visualize_pitching_leaders():
     start_year = request.args.get('start_year')
     end_year = request.args.get('end_year')
     stat = request.args.get('stat')
