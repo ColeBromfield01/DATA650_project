@@ -39,7 +39,7 @@ def get_batting_leader():
     year = request.args.get('year')
     stat = request.args.get('stat')
 
-    return jsonify({"output": functions.get_batting_leader(year, stat)})
+    return jsonify({"output": functions.get_batting_leader(int(year), stat)})
 
 
 @app.route('/pitching_leader', methods=['GET'])
@@ -47,7 +47,7 @@ def get_pitching_leader():
     year = request.args.get('year')
     stat = request.args.get('stat')
 
-    return jsonify({"output": functions.get_pitching_leader(year, stat)})
+    return jsonify({"output": functions.get_pitching_leader(int(year), stat)})
 
 
 @app.route('/period_batting_leader', methods=['GET'])
@@ -58,7 +58,7 @@ def get_period_batting_leader():
     end_year = request.args.get('end_year')
     stat = request.args.get('stat')
 
-    return jsonify({"output": functions.period_batting_leader(stat, start_year=start_year, end_year=end_year)})
+    return jsonify({"output": functions.period_batting_leader(stat, start_year=int(start_year), end_year=int(end_year))})
 
 
 @app.route('/period_pitching_leader', methods=['GET'])
@@ -69,7 +69,7 @@ def get_period_pitching_leader():
     end_year = request.args.get('end_year')
     stat = request.args.get('stat')
 
-    return jsonify({"output": functions.period_pitching_leader(stat, start_year=start_year, end_year=end_year)})
+    return jsonify({"output": functions.period_pitching_leader(stat, start_year=int(start_year), end_year=int(end_year))})
 
 
 @app.route('/visualize_batting_leaders', methods=['GET'])
@@ -79,7 +79,7 @@ def get_visualize_batting_leaders():
     stat = request.args.get('stat')
     top_n = request.args.get('top_n')
 
-    return functions.visualize_batting_leaders(stat, top_n, start_year=start_year, end_year=end_year)
+    return functions.visualize_batting_leaders(stat, int(top_n), start_year=int(start_year), end_year=int(end_year))
 
 
 @app.route('/visualize_pitching_leaders', methods=['GET'])
@@ -89,7 +89,7 @@ def get_visualize_pitching_leaders():
     stat = request.args.get('stat')
     top_n = request.args.get('top_n')
 
-    return functions.visualize_pitching_leaders(stat, top_n, start_year=start_year, end_year=end_year)
+    return functions.visualize_pitching_leaders(stat, int(top_n), start_year=int(start_year), end_year=int(end_year))
 
 
 @app.errorhandler(404)
