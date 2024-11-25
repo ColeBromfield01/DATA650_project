@@ -1,9 +1,6 @@
 import pandas as pd
 import json
 
-## TODO (Cole):
-## Instructions for user
-## Error handling for invalid abbreviations
 
 all_star_full = pd.read_csv("data/AllstarFull.csv")
 appearances = pd.read_csv("data/Appearances.csv")

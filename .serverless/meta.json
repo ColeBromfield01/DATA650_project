@@ -1,5 +1,5 @@
 {
-  "/home/ec2-user/DATA650_project": {
+  "C:\\Users\\coleb\\OneDrive\\Documents\\Gitlab_Repositories\\DATA650_project": {
     "versionSfCore": null,
     "versionFramework": "4.4.11",
     "isWithinCompose": false,
@@ -143,7 +143,7 @@
                     "Properties": {
                       "Code": {
                         "S3Bucket": "serverless-framework-deployments-us-east-1-e55afb21-2029",
-                        "S3Key": "serverless/aws-python-flask-api/dev/1732241147261-2024-11-22T02:05:47.261Z/api.zip"
+                        "S3Key": "serverless/aws-python-flask-api/dev/1732468117408-2024-11-24T17:08:37.408Z/api.zip"
                       },
                       "Handler": "wsgi_handler.handler",
                       "Runtime": "python3.9",
@@ -161,14 +161,14 @@
                       "ApiLogGroup"
                     ]
                   },
-                  "ApiLambdaVersionN6umsVPcxXCOHUQqnne9trI70QLTgWaJUXqJxUG1wI": {
+                  "ApiLambdaVersionkzweUeAfeDsCOPGElt8hxknp8LOFQInfHtkQcmIw8": {
                     "Type": "AWS::Lambda::Version",
                     "DeletionPolicy": "Retain",
                     "Properties": {
                       "FunctionName": {
                         "Ref": "ApiLambdaFunction"
                       },
-                      "CodeSha256": "rhquVtTRV3GL0ZeKnRcDoJNeAMXbGO+e1I403J9Pkjs="
+                      "CodeSha256": "YXgReWnF+My1kUYM7FCc1aDpVN9KW+L9A6THTxtI7g4="
                     }
                   },
                   "ApiGatewayRestApi": {
@@ -386,7 +386,7 @@
                       "ApiLambdaPermissionApiGateway"
                     ]
                   },
-                  "ApiGatewayDeployment1732241091234": {
+                  "ApiGatewayDeployment1732468040319": {
                     "Type": "AWS::ApiGateway::Deployment",
                     "Properties": {
                       "RestApiId": {
@@ -460,7 +460,7 @@
                   "ApiLambdaFunctionQualifiedArn": {
                     "Description": "Current Lambda function version",
                     "Value": {
-                      "Ref": "ApiLambdaVersionN6umsVPcxXCOHUQqnne9trI70QLTgWaJUXqJxUG1wI"
+                      "Ref": "ApiLambdaVersionkzweUeAfeDsCOPGElt8hxknp8LOFQInfHtkQcmIw8"
                     },
                     "Export": {
                       "Name": "sls-aws-python-flask-api-dev-ApiLambdaFunctionQualifiedArn"
@@ -574,14 +574,14 @@
                     "**.zip",
                     "**.serverless-wsgi"
                   ],
-                  "artifact": "/home/ec2-user/DATA650_project/.serverless/api.zip"
+                  "artifact": "C:\\Users\\coleb\\OneDrive\\Documents\\Gitlab_Repositories\\DATA650_project\\.serverless\\api.zip"
                 },
                 "name": "aws-python-flask-api-dev-api",
                 "memory": 1024,
                 "timeout": 6,
                 "runtime": "python3.9",
                 "vpc": {},
-                "versionLogicalId": "ApiLambdaVersionN6umsVPcxXCOHUQqnne9trI70QLTgWaJUXqJxUG1wI"
+                "versionLogicalId": "ApiLambdaVersionkzweUeAfeDsCOPGElt8hxknp8LOFQInfHtkQcmIw8"
               }
             },
             "plugins": [
@@ -591,7 +591,7 @@
               "serverless-plugin-common-excludes"
             ]
           },
-          "configFileDirPath": "/home/ec2-user/DATA650_project",
+          "configFileDirPath": "C:\\Users\\coleb\\OneDrive\\Documents\\Gitlab_Repositories\\DATA650_project",
           "config": {
             "type": "sls"
           },
@@ -609,7 +609,7 @@
       }
     },
     "composeServiceName": null,
-    "servicePath": "/home/ec2-user/DATA650_project",
+    "servicePath": "C:\\Users\\coleb\\OneDrive\\Documents\\Gitlab_Repositories\\DATA650_project",
     "serviceConfigFileName": "serverless.yml",
     "service": {
       "service": "aws-python-flask-api",
@@ -744,7 +744,7 @@
               "Properties": {
                 "Code": {
                   "S3Bucket": "serverless-framework-deployments-us-east-1-e55afb21-2029",
-                  "S3Key": "serverless/aws-python-flask-api/dev/1732241147261-2024-11-22T02:05:47.261Z/api.zip"
+                  "S3Key": "serverless/aws-python-flask-api/dev/1732468117408-2024-11-24T17:08:37.408Z/api.zip"
                 },
                 "Handler": "wsgi_handler.handler",
                 "Runtime": "python3.9",
@@ -762,14 +762,14 @@
                 "ApiLogGroup"
               ]
             },
-            "ApiLambdaVersionN6umsVPcxXCOHUQqnne9trI70QLTgWaJUXqJxUG1wI": {
+            "ApiLambdaVersionkzweUeAfeDsCOPGElt8hxknp8LOFQInfHtkQcmIw8": {
               "Type": "AWS::Lambda::Version",
               "DeletionPolicy": "Retain",
               "Properties": {
                 "FunctionName": {
                   "Ref": "ApiLambdaFunction"
                 },
-                "CodeSha256": "rhquVtTRV3GL0ZeKnRcDoJNeAMXbGO+e1I403J9Pkjs="
+                "CodeSha256": "YXgReWnF+My1kUYM7FCc1aDpVN9KW+L9A6THTxtI7g4="
               }
             },
             "ApiGatewayRestApi": {
@@ -987,7 +987,7 @@
                 "ApiLambdaPermissionApiGateway"
               ]
             },
-            "ApiGatewayDeployment1732241091234": {
+            "ApiGatewayDeployment1732468040319": {
               "Type": "AWS::ApiGateway::Deployment",
               "Properties": {
                 "RestApiId": {
@@ -1061,7 +1061,7 @@
             "ApiLambdaFunctionQualifiedArn": {
               "Description": "Current Lambda function version",
               "Value": {
-                "Ref": "ApiLambdaVersionN6umsVPcxXCOHUQqnne9trI70QLTgWaJUXqJxUG1wI"
+                "Ref": "ApiLambdaVersionkzweUeAfeDsCOPGElt8hxknp8LOFQInfHtkQcmIw8"
               },
               "Export": {
                 "Name": "sls-aws-python-flask-api-dev-ApiLambdaFunctionQualifiedArn"
@@ -1175,14 +1175,14 @@
               "**.zip",
               "**.serverless-wsgi"
             ],
-            "artifact": "/home/ec2-user/DATA650_project/.serverless/api.zip"
+            "artifact": "C:\\Users\\coleb\\OneDrive\\Documents\\Gitlab_Repositories\\DATA650_project\\.serverless\\api.zip"
           },
           "name": "aws-python-flask-api-dev-api",
           "memory": 1024,
           "timeout": 6,
           "runtime": "python3.9",
           "vpc": {},
-          "versionLogicalId": "ApiLambdaVersionN6umsVPcxXCOHUQqnne9trI70QLTgWaJUXqJxUG1wI"
+          "versionLogicalId": "ApiLambdaVersionkzweUeAfeDsCOPGElt8hxknp8LOFQInfHtkQcmIw8"
         }
       },
       "plugins": [
@@ -1192,20 +1192,20 @@
         "serverless-plugin-common-excludes"
       ]
     },
-    "serviceRawFile": "service: aws-python-flask-api\n\nframeworkVersion: \"4\"\n\ncustom:\n  wsgi:\n    app: app.app\n  s3Sync:\n    - bucketName: msml-data-650-front-end-static-cb-dr-mn\n      localDir: frontend/dist/\n      deleteRemoved: true # optional, indicates whether sync deletes files no longer present in localDir. Defaults to 'true'\n      acl: public-read # optional\n      followSymlinks: true # optional\n      defaultContentType: text/html # optional\n      params: # optional\n        - index.html:\n            CacheControl: 'no-cache'\n        - \"*.js\":\n            CacheControl: 'public, max-age=31536000'\n  pythonRequirements:\n    zip: true\n  pythonBin: \"python\"\n\nprovider:\n  name: aws\n  runtime: python3.9\n\n\nresources:\n  Resources:\n    WebsiteBucket:\n      Type: AWS::S3::Bucket\n      Properties:\n        BucketName: msml-data-650-front-end-static-cb-dr-mn\n        AccessControl: PublicRead\n        WebsiteConfiguration:\n          IndexDocument: index.html\n          ErrorDocument: index.html\n\nfunctions:\n  api:\n    handler: wsgi_handler.handler\n    events:\n      - http:\n          path: /\n          method: ANY\n          cors: true\n      - http:\n          path: /{proxy+}\n          method: ANY\n          cors: true\n    package:\n      individually: true\n      patterns:\n        - '!./**'\n        - '*.py'\n        - 'data/**'\n        - '**.zip'\n        - '**.serverless-wsgi'  \n\nplugins:\n  - serverless-s3-sync\n  - serverless-wsgi\n  - serverless-python-requirements\n  - serverless-plugin-common-excludes\n",
+    "serviceRawFile": "service: aws-python-flask-api\r\n\r\nframeworkVersion: \"4\"\r\n\r\ncustom:\r\n  wsgi:\r\n    app: app.app\r\n  s3Sync:\r\n    - bucketName: msml-data-650-front-end-static-cb-dr-mn\r\n      localDir: frontend/dist/\r\n      deleteRemoved: true # optional, indicates whether sync deletes files no longer present in localDir. Defaults to 'true'\r\n      acl: public-read # optional\r\n      followSymlinks: true # optional\r\n      defaultContentType: text/html # optional\r\n      params: # optional\r\n        - index.html:\r\n            CacheControl: 'no-cache'\r\n        - \"*.js\":\r\n            CacheControl: 'public, max-age=31536000'\r\n  pythonRequirements:\r\n    zip: true\r\n  pythonBin: \"python\"\r\n\r\nprovider:\r\n  name: aws\r\n  runtime: python3.9\r\n\r\n\r\nresources:\r\n  Resources:\r\n    WebsiteBucket:\r\n      Type: AWS::S3::Bucket\r\n      Properties:\r\n        BucketName: msml-data-650-front-end-static-cb-dr-mn\r\n        AccessControl: PublicRead\r\n        WebsiteConfiguration:\r\n          IndexDocument: index.html\r\n          ErrorDocument: index.html\r\n\r\nfunctions:\r\n  api:\r\n    handler: wsgi_handler.handler\r\n    events:\r\n      - http:\r\n          path: /\r\n          method: ANY\r\n          cors: true\r\n      - http:\r\n          path: /{proxy+}\r\n          method: ANY\r\n          cors: true\r\n    package:\r\n      individually: true\r\n      patterns:\r\n        - '!./**'\r\n        - '*.py'\r\n        - 'data/**'\r\n        - '**.zip'\r\n        - '**.serverless-wsgi'  \r\n\r\nplugins:\r\n  - serverless-s3-sync\r\n  - serverless-wsgi\r\n  - serverless-python-requirements\r\n  - serverless-plugin-common-excludes\r\n",
     "command": [
       "deploy"
     ],
     "options": {},
     "error": null,
     "params": {},
-    "machineId": "f0f8799f9ffba4060f0d2e55157e8824",
+    "machineId": "7d1606019318328a07e719abb0c79310",
     "stage": "dev",
     "accessKeyV2": "<REDACTED>",
     "accessKeyV1": "<REDACTED>",
-    "orgId": "ecfbcd71-c3bd-4ee4-bf3f-3259c08fa222",
-    "orgName": "dreyes53",
-    "userId": "6w7NRS7301M0V0WWR9",
+    "orgId": "df7364ba-248d-4a9f-886f-687ea7569958",
+    "orgName": "universityofmaryland",
+    "userId": "2ybVQ0pNZCqhqL0QXR",
     "dashboard": {
       "isEnabledForService": false,
       "requiredAuthentication": false,
@@ -1215,9 +1215,9 @@
       "serviceProvider": null,
       "instanceParameters": null
     },
-    "userName": "dreyes53",
+    "userName": "universityofmaryland",
     "subscription": null,
-    "userEmail": "dreyes53@terpmail.umd.edu",
+    "userEmail": "colebromfield@gmail.com",
     "serviceProviderAwsRegion": "us-east-1",
     "serviceProviderAwsCredentials": "<REDACTED>",
     "serviceProviderAwsAccountId": "843529970851",
@@ -1228,12 +1228,12 @@
     "serviceUniqueId": "arn:aws:cloudformation:us-east-1:843529970851:stack/aws-python-flask-api-dev/f2d4c900-7c1a-11ef-9675-0afff3df4c43",
     "serviceProviderAwsCfStackId": "arn:aws:cloudformation:us-east-1:843529970851:stack/aws-python-flask-api-dev/f2d4c900-7c1a-11ef-9675-0afff3df4c43",
     "serviceProviderAwsCfStackCreated": "2024-09-26T15:21:05.815Z",
-    "serviceProviderAwsCfStackUpdated": "2024-11-22T02:05:50.563Z",
+    "serviceProviderAwsCfStackUpdated": "2024-11-24T17:08:40.706Z",
     "serviceProviderAwsCfStackStatus": "UPDATE_COMPLETE",
     "serviceProviderAwsCfStackOutputs": [
       {
         "OutputKey": "ApiLambdaFunctionQualifiedArn",
-        "OutputValue": "arn:aws:lambda:us-east-1:843529970851:function:aws-python-flask-api-dev-api:33",
+        "OutputValue": "arn:aws:lambda:us-east-1:843529970851:function:aws-python-flask-api-dev-api:37",
         "Description": "Current Lambda function version",
         "ExportName": "sls-aws-python-flask-api-dev-ApiLambdaFunctionQualifiedArn"
       },
