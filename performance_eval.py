@@ -53,7 +53,7 @@ def calculate_metrics(results):
 
 # URL for our website
 url = "http://msml-data-650-front-end-static-cb-dr-mn.s3-website-us-east-1.amazonaws.com/"
-num_requests = 100
+num_requests = 200
 concurrency = 10
 
 print(f"Running load test for {num_requests} requests with concurrency {concurrency}...")
